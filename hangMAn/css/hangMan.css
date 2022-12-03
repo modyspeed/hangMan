@@ -1,0 +1,338 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  --main-transition: 0.3s;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  padding: 10px;
+  margin: auto 20px;
+  background-color: darkgray;
+  position: relative;
+  max-width: 570px;
+  margin: 50px auto;
+  box-shadow:0px 0px 10px 0px black;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: darkcyan;
+  min-height: 50px;
+  padding: 10px;
+}
+.header .title {
+  font-size: 35px;
+  font-weight: bold;
+  color: wheat;
+}
+.header .info {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.header .info span {
+  color: wheat;
+  font-size: 25px;
+  font-weight: bold;
+}
+.choose-section{
+  margin: 20px 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}
+.choose-section .section{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-weight: normal;
+}
+.choose-section .section span{
+  background-color: darkcyan;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  color: white;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.choose-section .section span:hover,.choose-section .section span.active{
+  background-color:  rgb(67, 221, 221);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: aquamarine;
+  gap: 20px;
+  padding: 10px;
+}
+.main .pic {
+  position: relative;
+}
+.main .pic,
+.main .letters {
+  border: 2px dotted gray;
+  padding: 10px;
+  background-color: bisque;
+}
+.main .pic .row {
+  width: 120px;
+  height: 5px;
+  background-color: black;
+  left: 20px;
+  position: relative;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .row::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 37px;
+  background-color: black;
+  left: 10px;
+  transform: skew(333deg, 42deg);
+  top: 2px;
+}
+.main .pic .hang .row::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 30px;
+  background-color: black;
+  right: 0;
+}
+.main .pic .hang .colum {
+  position: relative;
+  width: 5px;
+  height: 225px;
+  background-color: black;
+  left: 20px;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .hang .stand {
+  width: 200px;
+  height: 5px;
+  background-color: black;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .man {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+}
+.main .pic .man .head {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .man .arms {
+  position: relative;
+  height: 50px;
+  width: 5px;
+  background-color: black;
+  left: 15px;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .man .arms::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 36px;
+  background-color: black;
+  left: -12px;
+  transform: skew(30deg, 10deg);
+  top: 16px;
+}
+.main .pic .man .arms::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 36px;
+  background-color: black;
+  left: 12px;
+  transform: skew(-30deg, 10deg);
+  top: 16px;
+}
+.main .pic .man .legs {
+  position: relative;
+  height: 50px;
+  width: 5px;
+  background-color: black;
+  left: 15px;
+  transition: var(--main-transition);
+  opacity: 0;
+}
+.main .pic .man .legs::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 36px;
+  background-color: black;
+  left: -10px;
+  transform: skew(331deg, 10deg);
+  top: 42px;
+}
+.main .pic .man .legs::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 36px;
+  background-color: black;
+  left: 10px;
+  transform: skew(-331deg, 10deg);
+  top: 42px;
+}
+.main .letters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 259px;
+}
+.main .letters span {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: darkcyan;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.main .letters span:hover{
+  background-color: rgb(67, 221, 221);
+}
+.main .letters span.clicked {
+  pointer-events: none;
+  background-color: grey;
+  opacity: 0.5;
+}
+.guessWord {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 6px;
+}
+.guessWord span {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  background-color: darkcyan;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 25px;
+  border-bottom: 2px solid black;
+}
+.guessWord span.has-space {
+  border: none;
+  font-size: 35px;
+  background: none;
+  color: black;
+}
+.main .pic.wrong-1 .stand {
+  opacity: 1;
+}
+.main .pic.wrong-2 .colum {
+  opacity: 1;
+}
+.main .pic.wrong-3 .row {
+  opacity: 1;
+}
+.main .pic.wrong-4 .head {
+  opacity: 1;
+}
+.main .pic.wrong-5 .arms {
+  opacity: 1;
+}
+.main .pic.wrong-6 .legs {
+  opacity: 1;
+}
+.lose,.chosen {
+  pointer-events: none;
+}
+.popup {
+  background-color: #2a9aa5;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 10px;
+  width: 90%;
+  height: 90%;
+  line-height: 2;
+}
+.popup.winer{
+  animation: move 10s infinite ease-in-out;
+}
+.popup span {
+  font-size: 30px;
+  font-weight: bold;
+  color: goldenrod;
+  background-color: bisque;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  display: block;
+  text-align: center;
+}
+.choose {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #409fa9;
+  border-radius: 6px;
+  margin-top: 20%;
+}
+.close,
+.newGameBtn {
+  background-color: aquamarine;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 20px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.close {
+  background-color: red;
+}
+@keyframes move{
+  0%,100%{
+    transform: rotate(-10deg);
+  }
+ 50%{
+ 
+  transform: rotate(360deg)skew(-10deg,-10deg);
+  
+ }
+}
